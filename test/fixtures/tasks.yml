@@ -6,7 +6,7 @@ one:
   duration: 1.5
   idate: 2015-11-08
   fdate: 2015-11-08
-  user_id: 1
+  user: one
   finished: false
 
 two:
@@ -15,5 +15,5 @@ two:
   duration: 1.5
   idate: 2015-11-08
   fdate: 2015-11-08
-  user_id: 1
+  user: two
   finished: false
