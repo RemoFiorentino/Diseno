@@ -24,7 +24,7 @@
         <td><%= task.duration %></td>
         <td><%= task.idate %></td>
         <td><%= task.fdate %></td>
-        <td><%= task.user_id %></td>
+        <td><%= task.user.fname+" "+task.user.lname %></td>
         <td><%= task.finished %></td>
         <td><%= link_to 'Show', task %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
