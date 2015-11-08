@@ -1,6 +1,9 @@
-<p id="notice"><%= notice %></p>
+
 
 <h1>Listing Tasks</h1>
+<br>
+
+<%= link_to 'New Task', new_task_path, class: 'button' %>
 
 <table>
   <thead>
@@ -34,6 +37,4 @@
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'New Task', new_task_path %>
