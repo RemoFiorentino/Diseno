@@ -71,10 +71,10 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:title, :description, :duration, :idate, :fdate, :user_id, :finished)
+      params.require(:task).permit(:title, :description, :duration, :idate, :fdate, :user_id, :finished, :asigned)
     end
     
     def get_users
-      @users = User.all.map {|user|[user.fname + " " + user.lname,user.id]}
+      @users = User.all.map {|user|[user.fname + " " + user.lname,user.fname + " " + user.lname]}
     end
 end

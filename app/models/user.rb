@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
     has_many :tasks
     validates :fname, presence: true,
-                      length: { minimum: 6 }
+                      length: { minimum: 4 }
     validates :lname, presence: true,
                       length: { minimum: 6 }
      validates :email, presence: true,

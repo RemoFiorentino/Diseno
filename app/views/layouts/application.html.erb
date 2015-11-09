@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Trello by RF" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Diseño" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -16,7 +16,7 @@
     <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
         <li class="name">
-          <h1><%= link_to 'Trello', root_path %></h1>
+          <h1><%= link_to 'Diseño', root_path %></h1>
         </li>
          <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
         <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -26,7 +26,7 @@
         <ul class="left">
           <li class="divider"></li>
           <li>
-            <%= link_to 'Tasks', tasks_path %>
+            <%= link_to 'Tareas', tasks_path %>
           </li>
         </ul>
         <!-- Right Nav Section -->
@@ -37,19 +37,22 @@
               <%= link_to current_user.fname + " " + current_user.lname, edit_user_registration_path %>
             </li>
             <li>
-              <%= link_to 'Log Out', destroy_user_session_path, method: :delete%>
+              <%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete%>
             </li>
           <% else %>
             <li class="active">
-              <%= link_to 'Sign Up', new_user_registration_path %>
+              <%= link_to 'Registrarse', new_user_registration_path %>
             </li>
             <li>
-              <%= link_to 'Sign In', new_user_session_path %>
+              <%= link_to 'Iniciar sesión', new_user_session_path %>
             </li>
           <% end %>
         </ul>
       </section>
     </nav>
+    <div class="small-9 large-centered columns">
+      <img data-interchange="[http://tramitescolombia.org/wp-content/uploads/2014/03/pasado-judicial-policia.png(small)], [https://antecedentes.policia.gov.co:7005/WebJudicial/files/banner-web-verde.jpg, (medium)]">
+    </div>
     <div class="row">
       <div class="column large-12">
         <br>

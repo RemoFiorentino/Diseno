@@ -1,68 +1,85 @@
-<h1>Listing Tasks</h1>
+<h2>Listado de Tareas</h2>
+<p>Bienvenido a la terminal</p>
 <br>
-
-<%= link_to 'New Task', new_task_path, class: 'button' %>
-<h2>No Finished and expired <h2>
+<%= link_to 'Ingresar Nueva Tarea', new_task_path, class: 'button' %>
+<div class="row">
+<div class="columns large-4">
+<h3>Tareas que no han terminado y ya han vencido<h3>
 <% @tasks.each do |task| %>
   <% if task::finished ==false%>
     <% if task::fdate < DateTime.now.to_date%>
       <hr>
         <div class="row">
-          <div class="columns large-9 medium-6">
+          <div class="columns large-12 medium-6">
             <blockquote>
-              <%= link_to content_tag('h3',task.title), task %>
-              <cite><%= link_to task.user.fname+" "+task.user.lname, user_path(task.user) %> expires at <em><%= (task.fdate) %></em></cite>
+              <%= link_to content_tag('h5',task.title), task %>
+              <cite><%= link_to "creado por"+task.user.fname+" "+task.user.lname, user_path(task.user) %> </cite>
+              <cite>vence: <em><%= (task.fdate) %></em></cite>
+              <cite>Asignado a: <%= (task.asigned) %></cite>
             </blockquote>
           </div>
-          <div class="columns large-3 medium-6">
+          <div class="columns large-12 medium-6">
             <ul class="inline-list">
               <li><%= link_to 'Edit', edit_task_path(task), class: 'button' %></li>
               <li><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button alert' %></li>
             </ul>
           </div>
+          <hr>
         </div>
     <%end%>
   <%end%>
 <% end %>
-<h2>No Finished<h2>
+</div>
+<div class="columns large-4">
+<h3>Tareas que no han terminado<h3>
 <% @tasks.each do |task| %>
   <% if task::finished ==false%>
     <% if task::fdate >= DateTime.now.to_date%>
       <hr>
         <div class="row">
-          <div class="columns large-9 medium-6">
+          <div class="columns large-12 medium-6">
             <blockquote>
-              <%= link_to content_tag('h3',task.title), task %>
-              <cite><%= link_to task.user.fname+" "+task.user.lname, user_path(task.user) %> expires at <em><%= (task.fdate) %></em></cite>
+              <%= link_to content_tag('h5',task.title), task %>
+              <cite><%= link_to "creado por"+task.user.fname+" "+task.user.lname, user_path(task.user) %> </cite>
+              <cite>vence: <em><%= (task.fdate) %></em></cite>
+              <cite>Asignado a: <%= (task.asigned) %></cite>
             </blockquote>
           </div>
-          <div class="columns large-3 medium-6">
+          <div class="columns large-12 medium-6">
             <ul class="inline-list">
               <li><%= link_to 'Edit', edit_task_path(task), class: 'button' %></li>
               <li><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button alert' %></li>
             </ul>
           </div>
+          <hr>
         </div>
     <%end%>
   <%end%>
 <% end %>
-<h2>Finished<h2>
+</div>
+<div class="columns large-4">
+<h3>Tareas que han terminado<h3>
 <% @tasks.each do |task| %>
   <% if task::finished !=false%>
     <hr>
       <div class="row">
-        <div class="columns large-9 medium-6">
+        <div class="columns large-12 medium-6">
           <blockquote>
-            <%= link_to content_tag('h3',task.title), task %>
-            <cite><%= link_to task.user.fname+" "+task.user.lname, user_path(task.user) %> expires at <em><%= (task.fdate) %></em></cite>
+              <%= link_to content_tag('h5',task.title), task %>
+              <cite><%= link_to "creado por: "+task.user.fname+" "+task.user.lname, user_path(task.user) %> </cite>
+              <cite>vence: <em><%= (task.fdate) %></em></cite>
+              <cite>Asignado a: <%= (task.asigned) %></cite>
           </blockquote>
         </div>
-        <div class="columns large-3 medium-6">
+        <div class="columns large-12 medium-6">
           <ul class="inline-list">
             <li><%= link_to 'Edit', edit_task_path(task), class: 'button' %></li>
             <li><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button alert' %></li>
           </ul>
         </div>
+        <hr>
       </div>
   <%end%>
 <% end %>
+</div>
+</div>

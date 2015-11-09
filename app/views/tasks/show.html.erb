@@ -1,38 +1,46 @@
 
-
-<p>
-  <strong>Title:</strong>
-  <%= @task.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @task.description %>
-</p>
-
-<p>
-  <strong>Duration:</strong>
-  <%= @task.duration %>
-</p>
-
-<p>
-  <strong>Idate:</strong>
-  <%= @task.idate %>
-</p>
-
-<p>
-  <strong>Fdate:</strong>
-  <%= @task.fdate %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @task.user.fname+" "+@task.user.lname %>
-</p>
-
-<p>
-  <strong>Finished:</strong>
-  <%= @task.finished %>
-</p>
+<div class="row">
+  <div class="columns large-6">
+    <p>
+      <strong>Titulo</strong>
+      <%= @task.title %>
+    </p>
+    
+    <p>
+      <strong>Descripcion:</strong>
+      <%= @task.description %>
+    </p>
+    
+    <p>
+      <strong>Duracion:</strong>
+      <%= @task.duration %> <strong>horas</strong>
+    </p>
+    <p>
+    <strong>Terminado:</strong>
+    <%= @task.finished %>
+  </p>
+  </div>
+  <div class="columns large-6">
+    <p>
+      <strong>Fecha de inicio:</strong>
+      <%= @task.idate %>
+    </p>
+    
+    <p>
+      <strong>Fecha de terminacion:</strong>
+      <%= @task.fdate %>
+    </p>
+    
+    <p>
+      <strong>Asignado a:</strong>
+      <%= @task.asigned %>
+    </p>
+    
+    <p>
+      <strong>Creado por:</strong>
+      <%= @task.user.fname+" "+@task.user.lname %>
+    </p>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_task_path(@task), class: 'button' %>
