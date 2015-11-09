@@ -1,19 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  description: MyText
+  title: prueba
+  description: texto
   duration: 1.5
   idate: 2015-11-08
-  fdate: 2015-11-08
+  fdate: 2015-12-08
   user: one
   finished: false
 
 two:
-  title: MyString
-  description: MyText
-  duration: 1.5
+  title: prueba2
+  description: texto2
+  duration: 2.5
   idate: 2015-11-08
-  fdate: 2015-11-08
+  fdate: 2015-12-08
   user: two
   finished: false

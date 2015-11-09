@@ -3,7 +3,8 @@
 one:
   fname: MyString
   lname: MyString
-
+  email: MyString1
 two:
   fname: MyString
   lname: MyString
+  email: MyString2

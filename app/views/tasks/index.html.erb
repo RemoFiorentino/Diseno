@@ -1,40 +1,68 @@
-
-
 <h1>Listing Tasks</h1>
 <br>
 
 <%= link_to 'New Task', new_task_path, class: 'button' %>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Duration</th>
-      <th>Idate</th>
-      <th>Fdate</th>
-      <th>User</th>
-      <th>Finished</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tasks.each do |task| %>
-      <tr>
-        <td><%= task.title %></td>
-        <td><%= task.description %></td>
-        <td><%= task.duration %></td>
-        <td><%= task.idate %></td>
-        <td><%= task.fdate %></td>
-        <td><%= task.user.fname+" "+task.user.lname %></td>
-        <td><%= task.finished %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
+<h2>No Finished and expired <h2>
+<% @tasks.each do |task| %>
+  <% if task::finished ==false%>
+    <% if task::fdate < Time.now.utc%>
+      <hr>
+        <div class="row">
+          <div class="columns large-9 medium-6">
+            <blockquote>
+              <%= link_to content_tag('h3',task.title), task %>
+              <cite><%= link_to task.user.fname+" "+task.user.lname, user_path(task.user) %> expires at <em><%= (task.fdate) %></em></cite>
+            </blockquote>
+          </div>
+          <div class="columns large-3 medium-6">
+            <ul class="inline-list">
+              <li><%= link_to 'Edit', edit_task_path(task) %></li>
+              <li><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+            </ul>
+          </div>
+        </div>
+    <%end%>
+  <%end%>
+<% end %>
+<h2>No Finished<h2>
+<% @tasks.each do |task| %>
+  <% if task::finished ==false%>
+    <% if task::fdate > Time.now.utc%>
+      <hr>
+        <div class="row">
+          <div class="columns large-9 medium-6">
+            <blockquote>
+              <%= link_to content_tag('h3',task.title), task %>
+              <cite><%= link_to task.user.fname+" "+task.user.lname, user_path(task.user) %> expires at <em><%= (task.fdate) %></em></cite>
+            </blockquote>
+          </div>
+          <div class="columns large-3 medium-6">
+            <ul class="inline-list">
+              <li><%= link_to 'Edit', edit_task_path(task) %></li>
+              <li><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+            </ul>
+          </div>
+        </div>
+    <%end%>
+  <%end%>
+<% end %>
+<h2>Finished<h2>
+<% @tasks.each do |task| %>
+  <% if task::finished !=false%>
+    <hr>
+      <div class="row">
+        <div class="columns large-9 medium-6">
+          <blockquote>
+            <%= link_to content_tag('h3',task.title), task %>
+            <cite><%= link_to task.user.fname+" "+task.user.lname, user_path(task.user) %> expires at <em><%= (task.fdate) %></em></cite>
+          </blockquote>
+        </div>
+        <div class="columns large-3 medium-6">
+          <ul class="inline-list">
+            <li><%= link_to 'Edit', edit_task_path(task) %></li>
+            <li><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+          </ul>
+        </div>
+      </div>
+  <%end%>
+<% end %>
